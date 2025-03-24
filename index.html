@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="./assets/images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Browser extensions manager UI</title>
+        <link rel="stylesheet" href="style.css">
+    
+    </head>
+    <body>
+    
+        <div class="container">
+
+            <div class="headBar">
+                <img src="./assets/images/logo.svg" alt="logo">
+                
+                <span 
+                id="modeChange">
+                    <img src="./assets/images/icon-moon.svg" alt="moon">
+                </span>
+            </div>  
+
+            <div class="actionsBar">
+                <h2>Extensions List</h2>
+
+                <div>
+                    <span id="all" class="active">All</span>
+                    <span id="active">Active</span>
+                    <span id="inactive">Inactive</span>
+                </div>
+            </div>
+
+            <div class="extension-grid" id="grid">
+            
+            </div>
+
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>

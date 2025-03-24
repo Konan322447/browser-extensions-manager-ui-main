@@ -1,0 +1,171 @@
+@font-face {
+    font-family: 'Noto Sans';
+    src: url(./assets/fonts/NotoSans-VariableFont_wdth\,wght.ttf);
+}
+
+:root{
+    --neutral-900: hsl(227, 75%, 14%);
+    --neutral-800: hsl(226, 25%, 17%);
+    --neutral-700: hsl(225, 23%, 24%);
+    --neutral-600: hsl(226, 11%, 37%);
+    --neutral-300: hsl(0, 0%, 78%);
+    --neutral-200: hsl(217, 61%, 90%);
+    --neutral-100: hsl(0, 0%, 93%);
+    --neutral-0: hsl(200, 60%, 99%);
+    --red-400: hsl(3, 86%, 64%);
+    --red-500: hsl(3, 71%, 56%);
+    --red-700: hsl(3, 77%, 44%);
+    --light-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Noto Sans';
+}
+
+.container{
+    width: 100%;
+    height: fit-content;
+    min-height: 100dvh;
+    background: var(--neutral-200);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6% 15%;
+    .headBar{
+        display: flex;
+        background: var(--neutral-0);
+        width: 70vw;
+        padding: 1rem 1rem;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span{
+            width: fit-content;
+            height: fit-content;
+            padding: 0.7rem 1.1rem;
+            background: var(--neutral-100);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+    }
+
+    .actionsBar{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 3rem;
+        h2{
+            font-size: 25px;
+            font-weight: 700;
+        }
+        div{
+            display: flex;
+            gap: 1rem;
+            span{
+                background: var(--neutral-0);
+                padding: 0.6rem 1.2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 2rem;
+                cursor: pointer;
+            }
+            .active{
+                background: var(--red-700);
+                color: var(--neutral-0);
+            }
+        }
+    } 
+
+    .extension-grid{
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+        div{
+            background: var(--neutral-0);
+            /* width: fit-content; */
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+            .top{
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                span{
+                    display: flex;
+                    flex-direction: column;
+                    h2{
+                        font-size: 20px;
+                        font-weight: 700;
+                        color: var(--neutral-800);
+                    }
+                    p{
+                        color: var(--neutral-600);
+                    }
+                }
+            }
+
+            .bottom{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                span{
+                    border: 1px solid var(--neutral-600);
+                    padding: 0.5rem 1rem;
+                    border-radius: 3rem;
+                    font-weight: 700;
+                    color: var(--neutral-800);
+                }
+                .true{
+                    width: 3rem;
+                    height: 1.5rem;
+                    border: none;
+                    background: var(--red-700);
+                    position: relative;
+                }
+                .true::before{
+                    content: '';
+                    width: 40%;
+                    height: 80%;
+                    position: absolute;
+                    background: var(--neutral-0);
+                    border-radius: 50%;
+                    top: 0.15rem;
+                    right: 0.25rem;
+                }
+                .false{
+                    width: 3rem;
+                    height: 1.5rem;
+                    border: none;
+                    background: var(--neutral-300);
+                    position: relative;
+                }
+                .false::before{
+                    content: '';
+                    width: 40%;
+                    height: 80%;
+                    position: absolute;
+                    background: var(--neutral-0);
+                    border-radius: 50%;
+                    top: 0.15rem;
+                    left: 0.25rem;
+                }
+            }
+        }
+    }
+    
+}
