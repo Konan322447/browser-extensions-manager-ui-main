@@ -47,7 +47,7 @@ const fetchExtension = async () => {
                     </span>
         
                     <span class="bottom">
-                        <span>Remove</span>
+                        <span class="remove-btn">Remove</span>
         
                         <span class="${extension.isActive} active"></span>
                     </span>

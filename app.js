@@ -1,17 +1,4 @@
-const modeBtn = document.getElementById('modeChange');
-const modeIcon = document.querySelector('#modeChange img');
 
-modeBtn.addEventListener('click', () => {
-    let icon = modeIcon.getAttribute('src');
-
-    if (icon === './assets/images/icon-moon.svg') {
-        modeIcon.setAttribute('src', './assets/images/icon-sun.svg');
-        modeBtn.style.background = 'var(--neutral-700)';
-    } else {
-        modeIcon.setAttribute('src', './assets/images/icon-moon.svg');
-        modeBtn.style.background = 'var(--neutral-100)';
-    }
-});
 
 const fetchExtension = async () => {
     try {
@@ -39,7 +26,7 @@ const createExtension = (extension) => {
                 </span>
             </span>
             <span class="bottom">
-                <span>Remove</span>
+                <span class="remove-btn">Remove</span>
                 <span class="${ext.isActive} active"></span>
             </span>
         `;
@@ -84,3 +71,53 @@ inactivebtn.addEventListener('click', async () => {
     activebtn.classList.remove('active');
     inactivebtn.classList.add('active');
 });
+
+
+// Mode Switcher
+
+const root = document.documentElement;
+const modeBtn = document.getElementById('modeChange');
+const modeIcon = document.querySelector('#modeChange img');
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    const savedTheme = localStorage.getItem('theme');
+    const savedIcon = localStorage.getItem('iconState');
+    
+    if (savedTheme) {
+        root.classList.add(savedTheme)
+    }
+
+    if (savedIcon === './assets/images/icon-moon.svg') {
+        modeIcon.setAttribute('src', './assets/images/icon-moon.svg');  
+    }else{
+        modeIcon.setAttribute('src', './assets/images/icon-sun.svg');
+    }
+});
+
+const toggleTheme = ()=>{
+    if (root.classList.contains('dark-theme')) {
+        root.classList.remove('dark-theme');
+        localStorage.setItem('theme', '');
+        modeIcon.setAttribute('src', './assets/images/icon-moon.svg');  
+        localStorage.setItem('iconState', './assets/images/icon-moon.svg')
+    }else{
+        root.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark-theme');
+        modeIcon.setAttribute('src', './assets/images/icon-sun.svg');  
+        localStorage.setItem('iconState', './assets/images/icon-sun.svg')
+    }
+};
+
+modeBtn.addEventListener('click', toggleTheme)
+
+// modeBtn.addEventListener('click', () => {
+//     let icon = modeIcon.getAttribute('src');
+
+//     if (icon === './assets/images/icon-moon.svg') {
+//         modeIcon.setAttribute('src', './assets/images/icon-sun.svg');
+//         // modeBtn.style.background = 'var(--neutral-700)';
+//     } else {
+//         modeIcon.setAttribute('src', './assets/images/icon-moon.svg');
+//         // modeBtn.style.background = 'var(--neutral-100)';
+//     }
+// });
